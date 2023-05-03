@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module.ts'],
+  modules: ['../src/module.ts', '@nuxt/devtools'],
   build: {
     transpile: ['jsonwebtoken']
   },
