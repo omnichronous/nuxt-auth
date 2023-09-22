@@ -39,7 +39,7 @@ const signIn: SignInFunc<Credentials, any> = async (credentials, signInOptions, 
   const { callbackUrl, redirect = true } = signInOptions ?? {}
   if (redirect) {
     const urlToNavigateTo = callbackUrl ?? await getRequestURLWN(nuxt)
-    return navigateTo(urlToNavigateTo)
+    return navigateTo(urlToNavigateTo, { external: true })
   }
 }
 
@@ -59,7 +59,7 @@ const signOut: SignOutFunc = async (signOutOptions) => {
 
   const { callbackUrl, redirect = true } = signOutOptions ?? {}
   if (redirect) {
-    await navigateTo(callbackUrl ?? await getRequestURLWN(nuxt))
+    await navigateTo(callbackUrl ?? await getRequestURLWN(nuxt), { external: true })
   }
 
   return res
